@@ -222,7 +222,7 @@
             // 
             // giaoDienThuNganDatMon3
             // 
-            this.giaoDienThuNganDatMon3.Location = new System.Drawing.Point(179, 37);
+            this.giaoDienThuNganDatMon3.Location = new System.Drawing.Point(160, 37);
             this.giaoDienThuNganDatMon3.Name = "giaoDienThuNganDatMon3";
             this.giaoDienThuNganDatMon3.Size = new System.Drawing.Size(1277, 745);
             this.giaoDienThuNganDatMon3.TabIndex = 3;
