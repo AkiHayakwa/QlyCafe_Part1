@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using DTO;
 using DAO;
 
@@ -27,7 +23,6 @@ namespace BUS
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi
                 throw new Exception("Lỗi khi lấy danh sách tài khoản: " + ex.Message);
             }
         }
@@ -41,7 +36,6 @@ namespace BUS
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi
                 throw new Exception("Lỗi khi thêm tài khoản: " + ex.Message);
             }
         }
@@ -55,7 +49,6 @@ namespace BUS
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi
                 throw new Exception("Lỗi khi xóa tài khoản: " + ex.Message);
             }
         }
@@ -69,7 +62,6 @@ namespace BUS
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi
                 throw new Exception("Lỗi khi cập nhật tài khoản: " + ex.Message);
             }
         }
@@ -83,11 +75,11 @@ namespace BUS
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi
                 throw new Exception("Lỗi khi lấy tài khoản theo ID: " + ex.Message);
             }
         }
 
+        // Đăng nhập
         public string Login(string tenNguoiDung, string matKhau)
         {
             try
@@ -100,20 +92,34 @@ namespace BUS
             }
         }
 
+        // Reset mật khẩu
         public bool ResetPassword(string username, string newPassword)
         {
             try
             {
-                // Gọi phương thức ResetPassword trong DAO để thực hiện thao tác cập nhật mật khẩu trong CSDL
                 return taiKhoanDao.ResetPassword(username, newPassword);
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi và ném lại thông báo lỗi cho lớp gọi
-                throw new Exception("Lỗi khi xử lý reset mật khẩu: " + ex.Message);
+                throw new Exception("Lỗi khi reset mật khẩu: " + ex.Message);
             }
         }
 
+        // Cập nhật thông tin cá nhân
+        public bool UpdatePersonalInfo(TaiKhoanDTO taiKhoan)
+        {
+            try
+            {
+                return taiKhoanDao.UpdatePersonalInfo(taiKhoan);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi cập nhật thông tin cá nhân: " + ex.Message);
+            }
+        }
 
+        public int GetCurrentUserId(string tenNguoiDung) { 
+            return taiKhoanDao.GetCurrentUserId(tenNguoiDung);
+        }
     }
 }

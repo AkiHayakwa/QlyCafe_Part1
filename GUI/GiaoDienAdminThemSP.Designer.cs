@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GiaoDienAdminThemSP));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_Prod = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.AdmPrd_Price = new System.Windows.Forms.TextBox();
             this.AdmPrd_NamePrd = new System.Windows.Forms.TextBox();
-            this.btnClearProd = new System.Windows.Forms.Button();
-            this.btnDeleteProd = new System.Windows.Forms.Button();
-            this.btnUpdateProd = new System.Windows.Forms.Button();
-            this.btnAddProd = new System.Windows.Forms.Button();
             this.AdmPrd_Status = new System.Windows.Forms.ComboBox();
             this.AdmPrd_Stock = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,6 +46,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnAddProd = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUpdateProd = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDeleteProd = new Guna.UI2.WinForms.Guna2Button();
+            this.btnClearProd = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Prod)).BeginInit();
             this.panel2.SuspendLayout();
@@ -80,10 +81,10 @@
             this.dgv_Prod.AllowUserToAddRows = false;
             this.dgv_Prod.AllowUserToDeleteRows = false;
             this.dgv_Prod.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_Prod.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgv_Prod.BackgroundColor = System.Drawing.Color.White;
             this.dgv_Prod.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -107,12 +108,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.AdmPrd_Price);
-            this.panel2.Controls.Add(this.AdmPrd_NamePrd);
             this.panel2.Controls.Add(this.btnClearProd);
             this.panel2.Controls.Add(this.btnDeleteProd);
             this.panel2.Controls.Add(this.btnUpdateProd);
             this.panel2.Controls.Add(this.btnAddProd);
+            this.panel2.Controls.Add(this.AdmPrd_Price);
+            this.panel2.Controls.Add(this.AdmPrd_NamePrd);
             this.panel2.Controls.Add(this.AdmPrd_Status);
             this.panel2.Controls.Add(this.AdmPrd_Stock);
             this.panel2.Controls.Add(this.label7);
@@ -141,62 +142,6 @@
             this.AdmPrd_NamePrd.Name = "AdmPrd_NamePrd";
             this.AdmPrd_NamePrd.Size = new System.Drawing.Size(165, 20);
             this.AdmPrd_NamePrd.TabIndex = 16;
-            // 
-            // btnClearProd
-            // 
-            this.btnClearProd.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnClearProd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearProd.ForeColor = System.Drawing.Color.White;
-            this.btnClearProd.Location = new System.Drawing.Point(835, 234);
-            this.btnClearProd.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClearProd.Name = "btnClearProd";
-            this.btnClearProd.Size = new System.Drawing.Size(116, 51);
-            this.btnClearProd.TabIndex = 15;
-            this.btnClearProd.Text = "Xóa bỏ";
-            this.btnClearProd.UseVisualStyleBackColor = false;
-            this.btnClearProd.Click += new System.EventHandler(this.btnClearProd_Click);
-            // 
-            // btnDeleteProd
-            // 
-            this.btnDeleteProd.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnDeleteProd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteProd.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteProd.Location = new System.Drawing.Point(624, 234);
-            this.btnDeleteProd.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDeleteProd.Name = "btnDeleteProd";
-            this.btnDeleteProd.Size = new System.Drawing.Size(116, 51);
-            this.btnDeleteProd.TabIndex = 14;
-            this.btnDeleteProd.Text = "Xóa";
-            this.btnDeleteProd.UseVisualStyleBackColor = false;
-            this.btnDeleteProd.Click += new System.EventHandler(this.btnDeleteProd_Click);
-            // 
-            // btnUpdateProd
-            // 
-            this.btnUpdateProd.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnUpdateProd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateProd.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateProd.Location = new System.Drawing.Point(411, 234);
-            this.btnUpdateProd.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUpdateProd.Name = "btnUpdateProd";
-            this.btnUpdateProd.Size = new System.Drawing.Size(116, 51);
-            this.btnUpdateProd.TabIndex = 13;
-            this.btnUpdateProd.Text = "Cập nhật";
-            this.btnUpdateProd.UseVisualStyleBackColor = false;
-            this.btnUpdateProd.Click += new System.EventHandler(this.btnUpdateProd_Click);
-            // 
-            // btnAddProd
-            // 
-            this.btnAddProd.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnAddProd.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProd.ForeColor = System.Drawing.Color.White;
-            this.btnAddProd.Location = new System.Drawing.Point(207, 234);
-            this.btnAddProd.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddProd.Name = "btnAddProd";
-            this.btnAddProd.Size = new System.Drawing.Size(116, 51);
-            this.btnAddProd.TabIndex = 12;
-            this.btnAddProd.Text = "Thêm";
-            this.btnAddProd.UseVisualStyleBackColor = false;
-            this.btnAddProd.Click += new System.EventHandler(this.btnAddProd_Click);
             // 
             // AdmPrd_Status
             // 
@@ -296,6 +241,78 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "ID Sản Phẩm :";
             // 
+            // btnAddProd
+            // 
+            this.btnAddProd.BorderRadius = 20;
+            this.btnAddProd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddProd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddProd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddProd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddProd.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddProd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAddProd.ForeColor = System.Drawing.Color.White;
+            this.btnAddProd.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProd.Image")));
+            this.btnAddProd.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAddProd.Location = new System.Drawing.Point(182, 234);
+            this.btnAddProd.Name = "btnAddProd";
+            this.btnAddProd.Size = new System.Drawing.Size(168, 41);
+            this.btnAddProd.TabIndex = 22;
+            this.btnAddProd.Text = "Thêm";
+            // 
+            // btnUpdateProd
+            // 
+            this.btnUpdateProd.BorderRadius = 20;
+            this.btnUpdateProd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdateProd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUpdateProd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUpdateProd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpdateProd.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnUpdateProd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateProd.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateProd.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateProd.Image")));
+            this.btnUpdateProd.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnUpdateProd.Location = new System.Drawing.Point(382, 234);
+            this.btnUpdateProd.Name = "btnUpdateProd";
+            this.btnUpdateProd.Size = new System.Drawing.Size(168, 41);
+            this.btnUpdateProd.TabIndex = 23;
+            this.btnUpdateProd.Text = "Cập Nhật";
+            // 
+            // btnDeleteProd
+            // 
+            this.btnDeleteProd.BorderRadius = 20;
+            this.btnDeleteProd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteProd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteProd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDeleteProd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDeleteProd.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeleteProd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteProd.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteProd.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteProd.Image")));
+            this.btnDeleteProd.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnDeleteProd.Location = new System.Drawing.Point(590, 234);
+            this.btnDeleteProd.Name = "btnDeleteProd";
+            this.btnDeleteProd.Size = new System.Drawing.Size(168, 41);
+            this.btnDeleteProd.TabIndex = 24;
+            this.btnDeleteProd.Text = "Xóa";
+            // 
+            // btnClearProd
+            // 
+            this.btnClearProd.BorderRadius = 20;
+            this.btnClearProd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClearProd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClearProd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClearProd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClearProd.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnClearProd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearProd.ForeColor = System.Drawing.Color.White;
+            this.btnClearProd.Image = ((System.Drawing.Image)(resources.GetObject("btnClearProd.Image")));
+            this.btnClearProd.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnClearProd.Location = new System.Drawing.Point(794, 234);
+            this.btnClearProd.Name = "btnClearProd";
+            this.btnClearProd.Size = new System.Drawing.Size(168, 41);
+            this.btnClearProd.TabIndex = 25;
+            this.btnClearProd.Text = "Xóa bỏ";
+            // 
             // GiaoDienAdminThemSP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,11 +347,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox AdmPrd_Status;
         private System.Windows.Forms.TextBox AdmPrd_Stock;
-        private System.Windows.Forms.Button btnAddProd;
-        private System.Windows.Forms.Button btnUpdateProd;
-        private System.Windows.Forms.Button btnDeleteProd;
-        private System.Windows.Forms.Button btnClearProd;
         private System.Windows.Forms.TextBox AdmPrd_Price;
         private System.Windows.Forms.TextBox AdmPrd_NamePrd;
+        private Guna.UI2.WinForms.Guna2Button btnAddProd;
+        private Guna.UI2.WinForms.Guna2Button btnUpdateProd;
+        private Guna.UI2.WinForms.Guna2Button btnDeleteProd;
+        private Guna.UI2.WinForms.Guna2Button btnClearProd;
     }
 }

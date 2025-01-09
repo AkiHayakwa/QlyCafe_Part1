@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnClearUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnClearCustomer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
         nQd8FNUWhyehKUjvRTqoiIAI9oYVe0USsHdFRRTsiu3ZDSA2RAkgoICFIjakhoQEAum9956Q0JvnnXNn
@@ -1578,10 +1578,10 @@
         tKQlLWmjuDnO/w+vcPdJGyf25gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnDeleteUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnDeleteCustomer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAMphJREFUeF7tnQmQnWd1poEsJCSZqiSYTCqZLJMQM9iWF3nR0t23d+2SZVuWLFmL
+        EQAACxEBf2RfkQAAMphJREFUeF7tnQmQnWd1poEsJCSZqiSYTCqZLJMQM9iWF3nR0t23d+2SZVuWLFmL
         9wUcg3dsjFjGYOJg8ALeMIaQTIImzFSGTGUmhCSkKsskqWCMd8sYW2qtre7bLan39j/fuf4IcH1sq7u/
         X33O/Z6n6ikcYqT3u/f853/v1b2tNwHA7HBXUbz1y4eKU/5gqFj3paHipuD9XxwqvvbF4eIfwn8+E/6z
         N9gX/nn0S8NF4UnJXMsuZ3jlLHKmrwXvC94YzrpWzi6PQXw4AAAAGo9tRfFjXxwt5oSb45XBPww3wSeC
@@ -1800,7 +1800,7 @@
         OfGmN/1/aRRHTtJvIY4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnUpdateUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnUpdateCustomer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAATnhJREFUeF7t
         3XmYHcV97//RvoB2ISRALEICCUkz0qAFSWibGbPZBoPNYmPMDmZHBsyOkBAILcTGwTh4jTGLQezYCAkh
@@ -2141,7 +2141,7 @@
         gg==
 </value>
   </data>
-  <data name="btnAddUser.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnAddCustomer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAPMVJREFUeF7t
         3QmYHGd95/HGB2CDMeYGGwxG09PT09UjI8KRQMwVSCBsEoi8AeypHh1jW7amq0YQs8kSOdezJPvkIGxg

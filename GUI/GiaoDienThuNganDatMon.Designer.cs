@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GiaoDienThuNganDatMon));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CashierTable1 = new System.Windows.Forms.Button();
@@ -51,7 +51,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.Cashierbtnpayment = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.labelTime = new System.Windows.Forms.Label();
             this.CashierInvoice = new System.Windows.Forms.TextBox();
@@ -69,8 +68,10 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.CasherSearchPrd = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.Cashierbtnpayment = new Guna.UI2.WinForms.Guna2Button();
             this.chuyểnĐổiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.làmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnThemKhachHang = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Order)).BeginInit();
             this.CashierGrBoxOrder.SuspendLayout();
@@ -315,19 +316,6 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "( VND )";
             // 
-            // Cashierbtnpayment
-            // 
-            this.Cashierbtnpayment.BackColor = System.Drawing.Color.Blue;
-            this.Cashierbtnpayment.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cashierbtnpayment.ForeColor = System.Drawing.Color.White;
-            this.Cashierbtnpayment.Location = new System.Drawing.Point(549, 170);
-            this.Cashierbtnpayment.Name = "Cashierbtnpayment";
-            this.Cashierbtnpayment.Size = new System.Drawing.Size(196, 41);
-            this.Cashierbtnpayment.TabIndex = 10;
-            this.Cashierbtnpayment.Text = "Thanh toán";
-            this.Cashierbtnpayment.UseVisualStyleBackColor = false;
-            this.Cashierbtnpayment.Click += new System.EventHandler(this.Cashierbtnpayment_Click);
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -450,14 +438,14 @@
             this.dgv_Prd.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Prd.BackgroundColor = System.Drawing.Color.White;
             this.dgv_Prd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkCyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Prd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Prd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Prd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Prd.Location = new System.Drawing.Point(9, 109);
             this.dgv_Prd.Name = "dgv_Prd";
@@ -514,6 +502,23 @@
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
+            // Cashierbtnpayment
+            // 
+            this.Cashierbtnpayment.BorderRadius = 20;
+            this.Cashierbtnpayment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Cashierbtnpayment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Cashierbtnpayment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Cashierbtnpayment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Cashierbtnpayment.FillColor = System.Drawing.Color.DodgerBlue;
+            this.Cashierbtnpayment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cashierbtnpayment.ForeColor = System.Drawing.Color.White;
+            this.Cashierbtnpayment.Image = ((System.Drawing.Image)(resources.GetObject("Cashierbtnpayment.Image")));
+            this.Cashierbtnpayment.Location = new System.Drawing.Point(467, 166);
+            this.Cashierbtnpayment.Name = "Cashierbtnpayment";
+            this.Cashierbtnpayment.Size = new System.Drawing.Size(196, 41);
+            this.Cashierbtnpayment.TabIndex = 20;
+            this.Cashierbtnpayment.Text = "Thanh Toán";
+            // 
             // chuyểnĐổiToolStripMenuItem
             // 
             this.chuyểnĐổiToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -531,15 +536,35 @@
             this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(104, 25);
             this.làmMớiToolStripMenuItem.Text = "Làm mới ";
             // 
+            // btnThemKhachHang
+            // 
+            this.btnThemKhachHang.BorderRadius = 20;
+            this.btnThemKhachHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemKhachHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemKhachHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThemKhachHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThemKhachHang.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnThemKhachHang.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemKhachHang.ForeColor = System.Drawing.Color.White;
+            this.btnThemKhachHang.Image = ((System.Drawing.Image)(resources.GetObject("btnThemKhachHang.Image")));
+            this.btnThemKhachHang.Location = new System.Drawing.Point(673, 166);
+            this.btnThemKhachHang.Name = "btnThemKhachHang";
+            this.btnThemKhachHang.Size = new System.Drawing.Size(196, 41);
+            this.btnThemKhachHang.TabIndex = 19;
+            this.btnThemKhachHang.Text = "Thêm Khách Hàng";
+            this.btnThemKhachHang.Click += new System.EventHandler(this.btnThemKhachHang_Click);
+            // 
             // GiaoDienThuNganDatMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.Cashierbtnpayment);
+            this.Controls.Add(this.btnThemKhachHang);
             this.Controls.Add(this.CashierInvoice);
             this.Controls.Add(this.CashierTableNumber);
             this.Controls.Add(this.labelTime);
             this.Controls.Add(this.CashierInvoiceId);
-            this.Controls.Add(this.Cashierbtnpayment);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -571,7 +596,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button Cashierbtnpayment;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Button CashierTable2;
@@ -607,5 +631,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem chuyểnĐổiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem làmMớiToolStripMenuItem;
+        private Guna.UI2.WinForms.Guna2Button Cashierbtnpayment;
+        private Guna.UI2.WinForms.Guna2Button btnThemKhachHang;
     }
 }

@@ -30,6 +30,103 @@ namespace GUI
         }
         private void btnAddUser_Click(object sender, EventArgs e)
         {
+         
+        }
+
+        private void LoadDanhSachTaiKhoan()
+        {
+            TaiKhoanBus taiKhoanBus = new TaiKhoanBus();
+            try
+            {
+                List<TaiKhoanDTO> danhSachTaiKhoan = taiKhoanBus.GetAllTaiKhoan();
+                dgv_UserAccount.DataSource = danhSachTaiKhoan;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách tài khoản: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
+
+        private void LoadDataGridView()
+        {
+            TaiKhoanBus taiKhoanBus = new TaiKhoanBus();
+            List<TaiKhoanDTO> danhSachTaiKhoan = taiKhoanBus.GetAllTaiKhoan(); // Lấy danh sách từ cơ sở dữ liệu
+            dgv_UserAccount.DataSource = danhSachTaiKhoan;
+
+            dgv_UserAccount.Columns["Id_TaiKhoan"].HeaderText = "ID Tài Khoản";
+            dgv_UserAccount.Columns["TenNguoiDung"].HeaderText = "Tên Tài Khoản";
+            dgv_UserAccount.Columns["MatKhau"].HeaderText = "Mật Khẩu";
+            dgv_UserAccount.Columns["TrangThai"].HeaderText = "Trạng Thái";
+            dgv_UserAccount.Columns["Quyen"].HeaderText = "Quyền";
+        }
+
+        private void Admin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void GiaoDienAdminThemNguoiDung_Load(object sender, EventArgs e)
+        {
+            LoadDanhSachTaiKhoan();
+        }
+
+        private void dgv_UserAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private int id = 0;
+        private void dgv_UserAccount_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dgv_UserAccount.Rows[e.RowIndex];
+            id = (int)row.Cells[0].Value;
+            AdminAddUser_username.Text = row.Cells[1].Value.ToString();
+            AdminAddUser_password.Text = row.Cells[2].Value.ToString();
+            AdminAddUser_Role.Text = row.Cells[4].Value.ToString();
+            AdminAddUser_Status.Text = row.Cells[3].Value.ToString();
+        }
+
+        private void btnUpdateUser_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        public void clearFields()
+        {
+            AdminAddUser_username.Text = "";
+            AdminAddUser_password.Text = "";
+            AdminAddUser_Role.SelectedIndex = -1;
+            AdminAddUser_Status.SelectedIndex = -1;
+        }
+        private void btnClearUser_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnClearUser_Click_1(object sender, EventArgs e)
+        {
+            clearFields();
+        }
+
+        private void btnAddUser_Click_1(object sender, EventArgs e)
+        {
             if (emptyField())
             {
                 MessageBox.Show("Tài khoản , mật khẩu không được để trống ", "Thông Báo !", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -71,66 +168,7 @@ namespace GUI
             }
         }
 
-        private void LoadDanhSachTaiKhoan()
-        {
-            TaiKhoanBus taiKhoanBus = new TaiKhoanBus();
-            try
-            {
-                List<TaiKhoanDTO> danhSachTaiKhoan = taiKhoanBus.GetAllTaiKhoan();
-                dgv_UserAccount.DataSource = danhSachTaiKhoan;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải danh sách tài khoản: " + ex.Message, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        
-
-        private void LoadDataGridView()
-        {
-            TaiKhoanBus taiKhoanBus = new TaiKhoanBus();
-            List<TaiKhoanDTO> danhSachTaiKhoan = taiKhoanBus.GetAllTaiKhoan(); // Lấy danh sách từ cơ sở dữ liệu
-            dgv_UserAccount.DataSource = danhSachTaiKhoan; // Gán nguồn dữ liệu
-        }
-
-        private void Admin_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void GiaoDienAdminThemNguoiDung_Load(object sender, EventArgs e)
-        {
-            LoadDanhSachTaiKhoan();
-        }
-
-        private void dgv_UserAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private int id = 0;
-        private void dgv_UserAccount_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewRow row = dgv_UserAccount.Rows[e.RowIndex];
-            id = (int)row.Cells[0].Value;
-            AdminAddUser_username.Text = row.Cells[1].Value.ToString();
-            AdminAddUser_password.Text = row.Cells[2].Value.ToString();
-            AdminAddUser_Role.Text = row.Cells[4].Value.ToString();
-            AdminAddUser_Status.Text = row.Cells[3].Value.ToString();
-        }
-
-        private void btnUpdateUser_Click(object sender, EventArgs e)
+        private void btnUpdateUser_Click_1(object sender, EventArgs e)
         {
             // Kiểm tra các trường có trống không
             if (emptyField())
@@ -146,8 +184,8 @@ namespace GUI
                 string userName = AdminAddUser_username.Text.Trim();
                 string passWord = AdminAddUser_password.Text.Trim();
                 string role = AdminAddUser_Role.SelectedItem.ToString();
-                string status  = AdminAddUser_Status.SelectedItem.ToString(); // ComboBox chọn trạng thái    // ComboBox chọn quyền
-                
+                string status = AdminAddUser_Status.SelectedItem.ToString(); // ComboBox chọn trạng thái    // ComboBox chọn quyền
+
 
                 // Tạo đối tượng TaiKhoanDTO
                 TaiKhoanDTO taiKhoan = new TaiKhoanDTO
@@ -155,8 +193,8 @@ namespace GUI
                     Id_TaiKhoan = id,
                     TenNguoiDung = userName,
                     MatKhau = passWord,
-                    Quyen = role , 
-                    TrangThai = status  
+                    Quyen = role,
+                    TrangThai = status
                 };
 
                 // Gọi hàm cập nhật trong BUS
@@ -180,19 +218,7 @@ namespace GUI
             }
         }
 
-        public void clearFields()
-        {
-            AdminAddUser_username.Text = "";
-            AdminAddUser_password.Text = "";
-            AdminAddUser_Role.SelectedIndex = -1;
-            AdminAddUser_Status.SelectedIndex = -1;
-        }
-        private void btnClearUser_Click(object sender, EventArgs e)
-        {
-            clearFields();
-        }
-
-        private void btnDeleteUser_Click(object sender, EventArgs e)
+        private void btnDeleteUser_Click_1(object sender, EventArgs e)
         {
             // Kiểm tra các trường có trống không
             if (emptyField())

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using DTO;
 using DAO;
+using System.Data;
 
 public class HoaDonDAO
 {
@@ -209,4 +210,40 @@ public class HoaDonDAO
         return hoaDon;
     }
 
+    public DataTable LayThongKe(DateTime tuNgay, DateTime denNgay) {
+        DataTable thongKeTable = new DataTable();
+        string query = @" SELECT YEAR(Ngay) AS Nam, MONTH(Ngay) AS Thang, SUM(TongTien) AS TongDoanhThu 
+        FROM HoaDon WHERE Ngay BETWEEN @TuNgay AND @DenNgay GROUP BY YEAR(Ngay), MONTH(Ngay)";
+        try { 
+            conn.OpenConnection(); 
+            SqlCommand cmd = new SqlCommand(query, conn.GetConnection()); 
+            cmd.Parameters.AddWithValue("@TuNgay", tuNgay);
+            cmd.Parameters.AddWithValue("@DenNgay", denNgay);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd); 
+            adapter.Fill(thongKeTable); 
+        } catch (Exception ex) { 
+            throw new Exception("Lỗi khi lấy dữ liệu thống kê: " + ex.Message);
+        } finally { 
+            conn.CloseConnection(); 
+        }
+        return thongKeTable;
+    }
+
+    public DataTable LayHoaDonTheoThang(int year, int month) {
+        DataTable hoaDonTable = new DataTable(); 
+        string query = @" SELECT id_HoaDon, id_Ban, Ngay, TongTien, GiamGia FROM HoaDon WHERE YEAR(Ngay) = @Year AND MONTH(Ngay) = @Month";
+        try {
+            conn.OpenConnection(); 
+            SqlCommand cmd = new SqlCommand(query, conn.GetConnection());
+            cmd.Parameters.AddWithValue("@Year", year); 
+            cmd.Parameters.AddWithValue("@Month", month);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(hoaDonTable);
+        } catch (Exception ex) {
+            throw new Exception("Lỗi khi lấy hóa đơn theo tháng: " + ex.Message);
+        } finally { 
+            conn.CloseConnection();
+        }
+        return hoaDonTable;
+    }
 }

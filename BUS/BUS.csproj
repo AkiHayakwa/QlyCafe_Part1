@@ -159,6 +159,7 @@
     <Compile Include="ChiTietHoaDonBus.cs" />
     <Compile Include="DanhMucBus.cs" />
     <Compile Include="HoaDonBus.cs" />
+    <Compile Include="KhachHangBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamBus.cs" />
     <Compile Include="TaiKhoanBus.cs" />

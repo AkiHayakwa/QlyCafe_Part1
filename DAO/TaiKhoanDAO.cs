@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using DTO;
+
 namespace DAO
 {
     public class TaiKhoanDAO
@@ -37,7 +33,14 @@ namespace DAO
                         reader["TenNguoiDung"].ToString(),
                         reader["MatKhau"].ToString(),
                         reader["TrangThai"].ToString(),
-                        reader["Quyen"].ToString()
+                        reader["Quyen"].ToString(),
+                        reader["HoVaTen"] != DBNull.Value ? reader["HoVaTen"].ToString() : "",
+                        reader["SoDienThoai"] != DBNull.Value ? reader["SoDienThoai"].ToString() : "",
+                        reader["Email"] != DBNull.Value ? reader["Email"].ToString() : "",
+                        reader["NgayTao"] != DBNull.Value ? Convert.ToDateTime(reader["NgayTao"]) : DateTime.MinValue,
+                        reader["GioiTinh"] != DBNull.Value ? reader["GioiTinh"].ToString() : "",
+                        reader["CMND"] != DBNull.Value ? reader["CMND"].ToString() : "",
+                        reader["Hinh"] != DBNull.Value ? (byte[])reader["Hinh"] : null
                     );
                     taiKhoanList.Add(taiKhoan);
                 }
@@ -54,76 +57,71 @@ namespace DAO
             return taiKhoanList;
         }
 
+        // Thêm tài khoản mới
         public bool AddTaiKhoan(TaiKhoanDTO taiKhoan)
         {
             try
             {
-                // Mở kết nối
-                conn.OpenConnection();  // Nếu conn là đối tượng kết nối của bạn
-                string query = "INSERT INTO TaiKhoan (TenNguoiDung, MatKhau, TrangThai, Quyen) " +
-                               "VALUES (@TenNguoiDung, @MatKhau, @TrangThai, @Quyen)";
-
-                // Tạo SqlCommand và truyền query vào
+                conn.OpenConnection();
+                string query = "INSERT INTO TaiKhoan (TenNguoiDung, MatKhau, TrangThai, Quyen, NgayTao) " +
+                               "VALUES (@TenNguoiDung, @MatKhau, @TrangThai, @Quyen, @NgayTao)";
                 SqlCommand command = new SqlCommand(query, conn.GetConnection());
 
-                // Thêm tham số vào command với kiểu dữ liệu rõ ràng
-                command.Parameters.Add("@TenNguoiDung", SqlDbType.NVarChar).Value = taiKhoan.TenNguoiDung;
-                command.Parameters.Add("@MatKhau", SqlDbType.NVarChar).Value = taiKhoan.MatKhau;
-                command.Parameters.Add("@TrangThai", SqlDbType.NVarChar).Value = taiKhoan.TrangThai;
-                command.Parameters.Add("@Quyen", SqlDbType.NVarChar).Value = taiKhoan.Quyen;
+                command.Parameters.AddWithValue("@TenNguoiDung", taiKhoan.TenNguoiDung);
+                command.Parameters.AddWithValue("@MatKhau", taiKhoan.MatKhau);
+                command.Parameters.AddWithValue("@TrangThai", taiKhoan.TrangThai);
+                command.Parameters.AddWithValue("@Quyen", taiKhoan.Quyen);
+                command.Parameters.AddWithValue("@NgayTao", taiKhoan.NgayTao);
 
-
-                // Thực thi câu lệnh INSERT và kiểm tra xem có bản ghi nào được thêm không
                 int result = command.ExecuteNonQuery();
-
-                // Nếu thêm thành công, trả về true, nếu không thì false
                 return result > 0;
             }
             catch (Exception ex)
             {
-                // In chi tiết lỗi nếu có
-                Console.WriteLine(ex.Message);
                 throw new Exception("Lỗi khi thêm tài khoản: " + ex.Message);
             }
             finally
             {
-                // Đảm bảo đóng kết nối sau khi hoàn tất
                 conn.CloseConnection();
             }
         }
 
+        // Cập nhật thông tin tài khoản
         public bool UpdateTaiKhoan(TaiKhoanDTO taiKhoan)
         {
             try
             {
                 conn.OpenConnection();
-                // Truy vấn UPDATE với @Id_TaiKhoan là bắt buộc
-                string query = "UPDATE TaiKhoan SET TenNguoiDung = @TenNguoiDung, MatKhau = @MatKhau, TrangThai = @TrangThai, Quyen = @Quyen WHERE Id_TaiKhoan = @Id_TaiKhoan";
+                string query = "UPDATE TaiKhoan SET TenNguoiDung = @TenNguoiDung, MatKhau = @MatKhau, " +
+                               "TrangThai = @TrangThai, Quyen = @Quyen, HoVaTen = @HoVaTen, SoDienThoai = @SoDienThoai, Email = @Email, " +
+                               "GioiTinh = @GioiTinh, CMND = @CMND, Hinh = @Hinh " +
+                               "WHERE Id_TaiKhoan = @Id_TaiKhoan";
                 SqlCommand command = new SqlCommand(query, conn.GetConnection());
 
-                // Thêm các tham số vào câu lệnh SQL
+                command.Parameters.AddWithValue("@Id_TaiKhoan", taiKhoan.Id_TaiKhoan);
                 command.Parameters.AddWithValue("@TenNguoiDung", taiKhoan.TenNguoiDung);
                 command.Parameters.AddWithValue("@MatKhau", taiKhoan.MatKhau);
                 command.Parameters.AddWithValue("@TrangThai", taiKhoan.TrangThai);
                 command.Parameters.AddWithValue("@Quyen", taiKhoan.Quyen);
-
-                // Cung cấp giá trị ID của tài khoản để xác định bản ghi cần cập nhật
-                command.Parameters.AddWithValue("@Id_TaiKhoan", taiKhoan.Id_TaiKhoan);
+                command.Parameters.AddWithValue("@HoVaTen", taiKhoan.HoVaTen);
+                command.Parameters.AddWithValue("@SoDienThoai", taiKhoan.dienThoai);
+                command.Parameters.AddWithValue("@Email", taiKhoan.Email);
+                command.Parameters.AddWithValue("@GioiTinh", taiKhoan.GioiTinh);
+                command.Parameters.AddWithValue("@CMND", taiKhoan.CMND);
+                command.Parameters.AddWithValue("@Hinh", taiKhoan.Hinh);
 
                 int result = command.ExecuteNonQuery();
-                return result > 0; // Kiểm tra xem có dòng nào bị ảnh hưởng không
+                return result > 0;
             }
             catch (Exception ex)
             {
-                throw new Exception("Lỗi khi thực hiện câu lệnh SQL: " + ex.Message);
+                throw new Exception("Lỗi khi cập nhật tài khoản: " + ex.Message);
             }
             finally
             {
                 conn.CloseConnection();
             }
         }
-
-
 
         // Xóa tài khoản theo ID
         public bool DeleteTaiKhoan(int idTaiKhoan)
@@ -147,6 +145,7 @@ namespace DAO
             }
         }
 
+        // Lấy tài khoản theo ID
         public TaiKhoanDTO GetTaiKhoanById(int idTaiKhoan)
         {
             TaiKhoanDTO taiKhoan = null;
@@ -160,11 +159,18 @@ namespace DAO
                 if (reader.Read())
                 {
                     taiKhoan = new TaiKhoanDTO(
-                         Convert.ToInt32(reader["id_TaiKhoan"]),
+                        Convert.ToInt32(reader["id_TaiKhoan"]),
                         reader["TenNguoiDung"].ToString(),
-                        reader["MatKhau"].ToString() ,
-                        reader["Quyen"].ToString() ,
-                        reader["TrangThai"].ToString()
+                        reader["MatKhau"].ToString(),
+                        reader["TrangThai"].ToString(),
+                        reader["Quyen"].ToString(),
+                        reader["HoVaTen"] != DBNull.Value ? reader["HoVaTen"].ToString() : "",
+                        reader["SoDienThoai"] != DBNull.Value ? reader["SoDienThoai"].ToString() : "",
+                        reader["Email"] != DBNull.Value ? reader["Email"].ToString() : "",
+                        reader["NgayTao"] != DBNull.Value ? Convert.ToDateTime(reader["NgayTao"]) : DateTime.MinValue,
+                        reader["GioiTinh"] != DBNull.Value ? reader["GioiTinh"].ToString() : "",
+                        reader["CMND"] != DBNull.Value ? reader["CMND"].ToString() : "",
+                        reader["Hinh"] != DBNull.Value ? (byte[])reader["Hinh"] : null
                     );
                 }
                 reader.Close();
@@ -180,6 +186,7 @@ namespace DAO
             return taiKhoan;
         }
 
+        // Đăng nhập
         public string Login(string tenNguoiDung, string matKhau)
         {
             try
@@ -207,15 +214,13 @@ namespace DAO
                 conn.CloseConnection();
             }
         }
-
+        // Reset mật khẩu
         public bool ResetPassword(string username, string newPassword)
         {
             try
             {
-
                 conn.OpenConnection();
                 string query = "UPDATE TaiKhoan SET MatKhau = @MatKhau WHERE TenNguoiDung = @TenNguoiDung";
-
                 SqlCommand cmd = new SqlCommand(query, conn.GetConnection());
 
                 cmd.Parameters.AddWithValue("@MatKhau", newPassword);
@@ -226,8 +231,68 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                // Xử lý lỗi nếu có
                 throw new Exception("Lỗi khi reset mật khẩu: " + ex.Message);
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+
+        // Cập nhật thông tin cá nhân
+        public bool UpdatePersonalInfo(TaiKhoanDTO taiKhoan)
+        {
+            try
+            {
+                conn.OpenConnection();
+                string query = "UPDATE TaiKhoan SET HoVaTen = @HoVaTen, GioiTinh = @GioiTinh, SoDienThoai = @SoDienThoai,Email = @Email ,  CMND = @CMND, Hinh = @Hinh WHERE id_TaiKhoan = @Id_TaiKhoan";
+                SqlCommand command = new SqlCommand(query, conn.GetConnection());
+                command.Parameters.AddWithValue("@Id_TaiKhoan", taiKhoan.Id_TaiKhoan);
+                command.Parameters.AddWithValue("@HoVaTen", taiKhoan.HoVaTen);
+                command.Parameters.AddWithValue("@GioiTinh", taiKhoan.GioiTinh);
+                command.Parameters.AddWithValue("@SoDienThoai", taiKhoan.dienThoai);
+                command.Parameters.AddWithValue("@Email", taiKhoan.Email);
+                command.Parameters.AddWithValue("@CMND", taiKhoan.CMND);
+                command.Parameters.AddWithValue("@Hinh", (object)taiKhoan.Hinh ?? DBNull.Value);
+
+                int result = command.ExecuteNonQuery();
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi cập nhật thông tin cá nhân: " + ex.Message);
+            }
+            finally
+            {
+                conn.CloseConnection();
+            }
+        }
+
+        public int GetCurrentUserId(string tenNguoiDung)
+        {
+            try
+            {
+                conn.OpenConnection();
+                string query = "SELECT id_TaiKhoan FROM TaiKhoan WHERE TenNguoiDung = @TenNguoiDung";
+                SqlCommand command = new SqlCommand(query, conn.GetConnection());
+                command.Parameters.AddWithValue("@TenNguoiDung", tenNguoiDung);
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    throw new Exception("Không tìm thấy người dùng.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi lấy ID người dùng: " + ex.Message);
+            }
+            finally
+            {
+                conn.CloseConnection();
             }
         }
     }

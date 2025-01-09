@@ -30,5 +30,37 @@ namespace GUI
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXemThongKe_Click(object sender, EventArgs e)
+        {
+            DateTime tuNgay = dtP_TuNgay.Value.Date; 
+            DateTime denNgay = dtP_DenNgay.Value.Date;
+            HoaDonDAO hoaDonDAO = new HoaDonDAO();
+            DataTable thongKeTable = hoaDonDAO.LayThongKe(tuNgay, denNgay);
+            dgv_ThongKe.DataSource = thongKeTable;
+            chartThongKe.Series.Clear(); 
+            chartThongKe.Titles.Clear(); 
+            
+            chartThongKe.Titles.Add("Doanh thu theo tháng"); 
+            foreach (DataRow row in thongKeTable.Rows) {
+                int year = (int)row["Nam"]; 
+                int month = (int)row["Thang"];
+                
+                double totalRevenue = (double)row["TongDoanhThu"]; 
+                string seriesName = $"{year}-{month}"; 
+                chartThongKe.Series.Add(seriesName); 
+                chartThongKe.Series[seriesName].Points.AddY(totalRevenue); 
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

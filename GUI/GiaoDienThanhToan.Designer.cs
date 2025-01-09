@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GiaoDienThanhToan));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,8 +37,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnPrintInvoice = new System.Windows.Forms.Button();
-            this.bnnCancel = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.labelTime = new System.Windows.Forms.Label();
             this.labelInvoiceId = new System.Windows.Forms.Label();
@@ -54,6 +53,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.btnAddProd = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,31 +129,6 @@
             this.label7.Text = "Thành tiền : ";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
-            // btnPrintInvoice
-            // 
-            this.btnPrintInvoice.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnPrintInvoice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintInvoice.ForeColor = System.Drawing.Color.White;
-            this.btnPrintInvoice.Location = new System.Drawing.Point(79, 396);
-            this.btnPrintInvoice.Name = "btnPrintInvoice";
-            this.btnPrintInvoice.Size = new System.Drawing.Size(119, 35);
-            this.btnPrintInvoice.TabIndex = 7;
-            this.btnPrintInvoice.Text = "Xuất hóa đơn ";
-            this.btnPrintInvoice.UseVisualStyleBackColor = false;
-            this.btnPrintInvoice.Click += new System.EventHandler(this.btnPrintInvoice_Click);
-            // 
-            // bnnCancel
-            // 
-            this.bnnCancel.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bnnCancel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnnCancel.ForeColor = System.Drawing.Color.White;
-            this.bnnCancel.Location = new System.Drawing.Point(243, 396);
-            this.bnnCancel.Name = "bnnCancel";
-            this.bnnCancel.Size = new System.Drawing.Size(119, 35);
-            this.bnnCancel.TabIndex = 8;
-            this.bnnCancel.Text = "Hủy";
-            this.bnnCancel.UseVisualStyleBackColor = false;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -222,7 +198,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkCyan;
+            this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel1.Controls.Add(this.label15);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -233,10 +209,10 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.DarkCyan;
+            this.label15.BackColor = System.Drawing.Color.DodgerBlue;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(20, 9);
+            this.label15.Location = new System.Drawing.Point(174, 9);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(134, 30);
             this.label15.TabIndex = 0;
@@ -300,11 +276,49 @@
             this.label16.TabIndex = 23;
             this.label16.Text = "(vnd)";
             // 
+            // btnAddProd
+            // 
+            this.btnAddProd.BorderRadius = 20;
+            this.btnAddProd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddProd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddProd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddProd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddProd.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddProd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAddProd.ForeColor = System.Drawing.Color.White;
+            this.btnAddProd.Image = ((System.Drawing.Image)(resources.GetObject("btnAddProd.Image")));
+            this.btnAddProd.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAddProd.Location = new System.Drawing.Point(33, 395);
+            this.btnAddProd.Name = "btnAddProd";
+            this.btnAddProd.Size = new System.Drawing.Size(168, 41);
+            this.btnAddProd.TabIndex = 24;
+            this.btnAddProd.Text = "Xuất Hóa Đơn";
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 20;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.DodgerBlue;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button1.Location = new System.Drawing.Point(257, 395);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(168, 41);
+            this.guna2Button1.TabIndex = 25;
+            this.guna2Button1.Text = "Hủy";
+            // 
             // GiaoDienThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 448);
+            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.btnAddProd);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -319,8 +333,6 @@
             this.Controls.Add(this.textBoxCustomerCash);
             this.Controls.Add(this.labelInvoiceId);
             this.Controls.Add(this.labelTime);
-            this.Controls.Add(this.bnnCancel);
-            this.Controls.Add(this.btnPrintInvoice);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -347,8 +359,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnPrintInvoice;
-        private System.Windows.Forms.Button bnnCancel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Label labelInvoiceId;
@@ -365,5 +375,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
+        private Guna.UI2.WinForms.Guna2Button btnAddProd;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

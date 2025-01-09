@@ -63,8 +63,19 @@ CREATE TABLE TaiKhoan (
     MatKhau NVARCHAR(100) NOT NULL,
     TrangThai NVARCHAR(50),
     Quyen NVARCHAR(100),
+	HoVaTen NVARCHAR(100) , 
+	SoDienThoai VARCHAR(11) CHECK(SoDienThoai LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' 
+	                         OR SoDienThoai LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'
+							 OR SoDienThoai LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'
+							 OR SoDienThoai LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'
+							 OR SoDienThoai IS NULL) , 
+	Email varchar(100) , 
+	NgayTao Date , 
+	GioiTinh NVARCHAR(10),
+	CMND NVARCHAR(20),
+	Hinh VARBINARY(MAX)
 );
-
+DROP TABLE TaiKhoan
 CREATE TABLE KhachHang(
      id_KhachHang INT PRIMARY KEY , 
 	 TENKH NVARCHAR(30) NOT NULL ,
@@ -81,10 +92,14 @@ drop table TaiKhoan
 select * from HoaDon;
 
 select * from SanPham;
-insert into TaiKhoan values ('Nguyen Van Tru','123456789',N'Hoạt động','Admin'),('Nguyen Van Thu','123456789',N'Hoạt động','Thu Ngân');
-
+INSERT INTO TaiKhoan (TenNguoiDung, MatKhau, TrangThai, Quyen) 
+VALUES ('Nguyen Van Tru', '123456789', N'Hoạt động', 'Admin'),
+       ('Nguyen Van Thu', '123456789', N'Hoạt động', 'Thu Ngân');
 
 insert into DanhMuc values (N'Cafe'),(N'Bánh Ngọt'),(N'Sinh tố'),(N'Trà sữa')
+
+
+SELECT YEAR(Ngay) AS Nam, MONTH(Ngay) AS Thang, SUM(TongTien) AS TongDoanhThu FROM HoaDon WHERE Ngay BETWEEN '2025-01-01' AND '2025-01-31' GROUP BY YEAR(Ngay), MONTH(Ngay);
 
 
 select * from SanPham;
@@ -111,6 +126,11 @@ BEGIN
 	Set TrangThai = 'Còn'
 	From SanPham 
 END
+
+UPDATE HoaDon
+SET Ngay = DATEADD(month, 1, Ngay)
+WHERE id_HoaDon = 35;
+
 
 drop trigger trg_UpdateSanPham
 delete from sanpham

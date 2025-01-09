@@ -333,14 +333,9 @@ namespace GUI
                         dgv_Order.Rows.Clear();
                         LoadOrderForTable(selectedTableId);
 
-                        // Kiểm tra xem có hóa đơn nào với tổng tiền = 0 không
-                        if (currentInvoiceId != -1 && currentInvoiceTotal == 0)
+                        // Kiểm tra xem bàn đã có người hay chưa (màu xanh)
+                        if (clickedButton.BackColor == Color.Green)
                         {
-                            CashierInvoiceId.Text = currentInvoiceId.ToString();
-                        }
-                        else
-                        {
-                            // Kiểm tra hóa đơn hiện có của bàn
                             var hoaDon = hoaDonBus.LayHoaDonTheoBan(selectedTableId);
                             if (hoaDon != null && hoaDon.TongTien > 0)
                             {
@@ -364,6 +359,14 @@ namespace GUI
 
                             CashierInvoiceId.Text = currentInvoiceId.ToString();
                         }
+                        else
+                        {
+                            // Sử dụng hóa đơn hiện tại nếu bàn đang có người
+                            if (currentInvoiceId != -1 && currentInvoiceTotal == 0)
+                            {
+                                CashierInvoiceId.Text = currentInvoiceId.ToString();
+                            }
+                        }
 
                         CalculateAndDisplayTotalPrice();
                         MessageBox.Show("Bạn đã chọn Bàn " + selectedTableId, "Thông báo");
@@ -377,6 +380,8 @@ namespace GUI
 
             isHandlingClick = false;
         }
+
+
 
         private void Cashierbtnpayment_Click(object sender, EventArgs e)
         {
@@ -502,5 +507,10 @@ namespace GUI
             }
         }
 
-     } 
+        private void btnThemKhachHang_Click(object sender, EventArgs e)
+        {
+            GiaoDienThemKhachHang giaoDienKhachHang = new GiaoDienThemKhachHang();
+            giaoDienKhachHang.Show();
+        }
+    } 
  }

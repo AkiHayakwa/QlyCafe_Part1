@@ -75,13 +75,16 @@ namespace DAO
         // Cập nhật danh mục
         public bool UpdateDanhMuc(DanhMucDTO danhMuc)
         {
+            if (danhMuc.Id_danhMuc <= 0 || string.IsNullOrEmpty(danhMuc.TenDanhMuc)) { 
+                throw new ArgumentException("Thông tin danh mục không hợp lệ.");
+            }
             try
             {
                 conn.OpenConnection();
                 string query = "UPDATE DanhMuc SET TenDanhMuc = @TenDanhMuc WHERE id_DanhMuc = @Id_DanhMuc";
                 SqlCommand command = new SqlCommand(query, conn.GetConnection());
-                command.Parameters.AddWithValue("@TenDanhMuc", danhMuc.TenDanhMuc);
                 command.Parameters.AddWithValue("@Id_DanhMuc", danhMuc.Id_danhMuc);
+                command.Parameters.AddWithValue("@TenDanhMuc", danhMuc.TenDanhMuc);
 
                 int result = command.ExecuteNonQuery();
                 return result > 0;

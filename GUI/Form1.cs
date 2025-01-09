@@ -16,6 +16,7 @@
     {
         public partial class Form1 : Form
         {
+        public static int idSession; 
             public Form1()
             {
                 InitializeComponent();
@@ -54,12 +55,14 @@
                 }
                 else
                 {
-                    TaiKhoanBus taikhoanbus = new TaiKhoanBus();
+                TaiKhoanBus taikhoanbus = new TaiKhoanBus();
                 string password = login_password.Text;
                 if(password == "")
                 {
                     MessageBox.Show("lỗi không cho có dấu cách ");
+                    return;
                 }
+
                     string quyen = taikhoanbus.Login(Login_username.Text, password); // Lấy quyền người dùng
                     
                     if (quyen != null)
@@ -74,6 +77,7 @@
                         }
                         else if (quyen == "Thu Ngân")
                         {
+                            idSession = taikhoanbus.GetCurrentUserId(Login_username.Text);
                             GiaoDienThuNgan thuNganControl = new GiaoDienThuNgan();
                             thuNganControl.Show();
                         }

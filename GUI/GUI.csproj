@@ -73,6 +73,7 @@
     <Reference Include="DevExpress.Utils.v24.1" />
     <Reference Include="DevExpress.Sparkline.v24.1.Core" />
     <Reference Include="DevExpress.Utils.v24.1.UI, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v24.1, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v24.1.Extensions, Version=24.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -256,17 +257,35 @@
     <Compile Include="GiaoDienDangki.Designer.cs">
       <DependentUpon>GiaoDienDangki.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoDienLoaiSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GiaoDienLoaiSanPham.Designer.cs">
+      <DependentUpon>GiaoDienLoaiSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoDienThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GiaoDienThanhToan.Designer.cs">
       <DependentUpon>GiaoDienThanhToan.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaoDienThemKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDienThemKhachHang.Designer.cs">
+      <DependentUpon>GiaoDienThemKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiaoDienThongKe.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GiaoDienThongKe.Designer.cs">
       <DependentUpon>GiaoDienThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDienThongKeHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GiaoDienThongKeHoaDon.Designer.cs">
+      <DependentUpon>GiaoDienThongKeHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="GiaoDienThuNgan.cs">
       <SubType>Form</SubType>
@@ -285,6 +304,12 @@
     </Compile>
     <Compile Include="GiaoDienThuNganNguoiDung.Designer.cs">
       <DependentUpon>GiaoDienThuNganNguoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDienXuatHienThongTinNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDienXuatHienThongTinNguoiDung.Designer.cs">
+      <DependentUpon>GiaoDienXuatHienThongTinNguoiDung.cs</DependentUpon>
     </Compile>
     <Compile Include="GiaoDienXuatHoaDon1.cs">
       <SubType>Component</SubType>
@@ -320,11 +345,20 @@
     <EmbeddedResource Include="GiaoDienDangki.resx">
       <DependentUpon>GiaoDienDangki.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDienLoaiSanPham.resx">
+      <DependentUpon>GiaoDienLoaiSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienThanhToan.resx">
       <DependentUpon>GiaoDienThanhToan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDienThemKhachHang.resx">
+      <DependentUpon>GiaoDienThemKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienThongKe.resx">
       <DependentUpon>GiaoDienThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDienThongKeHoaDon.resx">
+      <DependentUpon>GiaoDienThongKeHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienThuNgan.resx">
       <DependentUpon>GiaoDienThuNgan.cs</DependentUpon>
@@ -334,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienThuNganNguoiDung.resx">
       <DependentUpon>GiaoDienThuNganNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDienXuatHienThongTinNguoiDung.resx">
+      <DependentUpon>GiaoDienXuatHienThongTinNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienXuatHoaDon1.resx">
       <DependentUpon>GiaoDienXuatHoaDon1.cs</DependentUpon>

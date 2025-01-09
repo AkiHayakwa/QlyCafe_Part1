@@ -60,6 +60,8 @@ namespace GUI
             giaoDienAdminThemNguoiDung1.Visible = false;
             giaoDienAdminThemSP1.Visible = false;
             giaoDienThongKe1.Visible = true;
+            giaoDienThongKeHoaDon1.Visible = false;
+            giaoDienLoaiSanPham1.Visible = false;
         }
 
         private void Button2_Click_1(object sender, EventArgs e)
@@ -67,6 +69,8 @@ namespace GUI
             giaoDienAdminThemNguoiDung1.Visible = true;
             giaoDienAdminThemSP1.Visible = false;
             giaoDienThongKe1.Visible = false;
+            giaoDienThongKeHoaDon1.Visible = false;
+            giaoDienLoaiSanPham1.Visible = false;
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -74,6 +78,8 @@ namespace GUI
             giaoDienAdminThemNguoiDung1.Visible = false;
             giaoDienAdminThemSP1.Visible = true;
             giaoDienThongKe1.Visible = false;
+            giaoDienThongKeHoaDon1.Visible = false;
+            giaoDienLoaiSanPham1.Visible = false;
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -86,6 +92,48 @@ namespace GUI
 
                 this.Hide();
             }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            giaoDienAdminThemNguoiDung1.Visible = false;
+            giaoDienAdminThemSP1.Visible = false ;
+            giaoDienThongKe1.Visible = false;
+            giaoDienThongKeHoaDon1.Visible = true;
+            giaoDienLoaiSanPham1.Visible = false;
+        }
+
+        private void giaoDienThongKeHoaDon1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbCashierClose_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát chương trình ? ", "Đồng ý", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+            giaoDienAdminThemNguoiDung1.Visible = false;
+            giaoDienAdminThemSP1.Visible = false;
+            giaoDienThongKe1.Visible = false;
+            giaoDienThongKeHoaDon1.Visible = false;
+            giaoDienLoaiSanPham1.Visible = true;
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            giaoDienAdminThemNguoiDung1.Visible = false;
+            giaoDienAdminThemSP1.Visible = false;
+            giaoDienThongKe1.Visible = false;
+            giaoDienThongKeHoaDon1.Visible = false;
+            giaoDienLoaiSanPham1.Visible = true;
+
         }
     }
 }
